@@ -1,0 +1,13 @@
+{
+  "name": "ist-mern-school-system",
+  "private": true,
+  "scripts": {
+    "start": "npm --prefix backend start",
+    "client": "npm --prefix frontend start",
+    "server": "npm --prefix backend start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

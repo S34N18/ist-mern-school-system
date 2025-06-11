@@ -1,0 +1,59 @@
+/* Dashboard Page Styles */
+.dashboard-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #e0f7fa, #fff);
+  font-family: 'Poppins', sans-serif;
+}
+
+.dashboard-content {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 400px;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.dashboard-content h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+.dashboard-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.dashboard-content button {
+  background-color: #ff4d4d;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-content button:hover {
+  background-color: #cc0000;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

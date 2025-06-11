@@ -1,0 +1,392 @@
+/* Grades.css */
+.grades-page {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.grades-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.grades-header h2 {
+  color: #2c3e50;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.student-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.student-selector label {
+  font-weight: 500;
+  color: #34495e;
+}
+
+.student-selector select {
+  padding: 8px 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: white;
+  min-width: 200px;
+}
+
+.student-selector select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+}
+
+.loading {
+  color: #3498db;
+}
+
+.error {
+  color: #e74c3c;
+  background-color: #fdf2f2;
+  border: 1px solid #e74c3c;
+  border-radius: 6px;
+}
+
+.no-grades {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.no-grades p {
+  font-size: 18px;
+  color: #6c757d;
+  margin: 0;
+}
+
+.grade-summary {
+  margin-bottom: 30px;
+}
+
+.summary-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.summary-card h3 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.grade-average {
+  padding: 8px 16px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.grades-table-container {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.grades-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.grades-table thead {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+}
+
+.grades-table th {
+  padding: 16px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.grades-table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+
+.grades-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.grades-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.student-cell {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.assignment-cell {
+  max-width: 200px;
+}
+
+.assignment-title {
+  font-weight: 500;
+  color: #2c3e50;
+  display: block;
+  line-height: 1.4;
+}
+
+.date-cell {
+  white-space: nowrap;
+  color: #6c757d;
+  font-size: 13px;
+}
+
+.status-cell {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.status-cell.on-time {
+  color: #27ae60;
+}
+
+.status-cell.late {
+  color: #e74c3c;
+}
+
+.grade-cell {
+  text-align: center;
+}
+
+.grade-value {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 13px;
+  color: white;
+}
+
+.grade-excellent {
+  background-color: #27ae60;
+}
+
+.grade-good {
+  background-color: #f39c12;
+}
+
+.grade-satisfactory {
+  background-color: #3498db;
+}
+
+.grade-passing {
+  background-color: #e67e22;
+}
+
+.grade-failing {
+  background-color: #e74c3c;
+}
+
+.not-graded {
+  color: #95a5a6;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.feedback-cell {
+  max-width: 250px;
+}
+
+.feedback-content {
+  line-height: 1.4;
+}
+
+.feedback-text {
+  display: block;
+  color: #2c3e50;
+  margin-bottom: 4px;
+}
+
+.graded-by {
+  color: #7f8c8d;
+  font-style: italic;
+  font-size: 11px;
+}
+
+.no-feedback {
+  color: #95a5a6;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.files-cell, .assignment-files-cell {
+  max-width: 150px;
+}
+
+.file-downloads {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.download-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  text-align: left;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.download-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+.download-btn.submission-file {
+  background-color: #3498db;
+}
+
+.download-btn.assignment-file {
+  background-color: #9b59b6;
+}
+
+.download-btn.assignment-file:hover {
+  background-color: #8e44ad;
+}
+
+.no-files {
+  color: #95a5a6;
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .grades-table-container {
+    overflow-x: auto;
+  }
+  
+  .grades-table {
+    min-width: 1000px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grades-page {
+    padding: 15px;
+  }
+  
+  .grades-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .grades-header h2 {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .student-selector {
+    justify-content: center;
+  }
+  
+  .summary-stats {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .stat {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+  
+  .grades-table th,
+  .grades-table td {
+    padding: 12px 8px;
+  }
+  
+  .assignment-cell,
+  .feedback-cell,
+  .files-cell,
+  .assignment-files-cell {
+    max-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .summary-card {
+    padding: 20px 15px;
+  }
+  
+  .grades-table th,
+  .grades-table td {
+    padding: 10px 6px;
+    font-size: 13px;
+  }
+  
+  .download-btn {
+    font-size: 10px;
+    padding: 4px 6px;
+  }
+}

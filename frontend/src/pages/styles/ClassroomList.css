@@ -1,0 +1,222 @@
+/* ClassroomList.css */
+/* Main styling for the classroom list container */
+.classroom-list-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Section title styling */
+.classroom-list-container h3 {
+  font-size: 1.6rem;
+  color: #2c3e50;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 500;
+}
+
+/* Add classroom section styling to match current design */
+.add-classroom-section {
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.add-classroom-section h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  border-bottom: none;
+  padding-bottom: 1rem;
+}
+
+/* Add form input styling */
+.add-classroom-section input,
+.add-classroom-section textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.add-classroom-section textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.add-classroom-section button {
+  width: 100%;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.7rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-classroom-section button:hover {
+  background-color: #218838;
+}
+
+/* Grid layout for classrooms - match screenshot */
+.classrooms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+
+/* Individual classroom card styling */
+.classroom-card {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: box-shadow 0.2s ease;
+  border: 1px solid #eaeaea;
+}
+
+.classroom-card:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Classroom card header styling */
+.classroom-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.8rem;
+}
+
+.classroom-header h4 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.classroom-code {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  font-family: monospace;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  align-self: flex-start;
+  border: 1px solid #e9ecef;
+}
+
+/* Classroom description styling */
+.classroom-description {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+  flex-grow: 1;
+}
+
+/* Lecturer info styling */
+.classroom-lecturer {
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+/* Action buttons styling - match blue button in screenshot */
+.classroom-actions {
+  margin-top: auto;
+  padding-top: 0.8rem;
+}
+
+.view-classroom-link,
+.view-classroom-details {
+  display: inline-block;
+  background-color: #17a2b8;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  transition: background-color 0.2s;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.view-classroom-link:hover,
+.view-classroom-details:hover {
+  background-color: #138496;
+}
+
+/* Empty state styling */
+.no-classrooms {
+  text-align: center;
+  color: #6c757d;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  border: 1px dashed #dee2e6;
+}
+
+/* Loading and error state styling */
+.loading,
+.error {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+.loading {
+  color: #6c757d;
+  background-color: #f8f9fa;
+}
+
+.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .classroom-list-container {
+    padding: 1rem;
+  }
+  
+  .classrooms-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .classroom-card {
+    padding: 1rem;
+  }
+}
+
+/* Animation for loading state */
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.loading {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Separator styling - to match screenshot */
+hr {
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  margin: 1.5rem 0;
+}

@@ -1,0 +1,80 @@
+/* Register Page Styles */
+.register-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Slight gradient background */
+  font-family: 'Poppins', sans-serif;
+}
+
+.register-form {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  width: 380px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.register-form input,
+.register-form select {
+  width: 100%;
+  margin-bottom: 1.2rem;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+}
+
+.register-form input:focus,
+.register-form select:focus {
+  border-color: #28a745;
+  outline: none;
+}
+
+.register-form button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #28a745;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.register-form button:hover {
+  background-color: #218838;
+}
+
+.register-form .error {
+  color: red;
+  background: #ffe5e5;
+  padding: 0.6rem;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Smooth fade-in animation for the form */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

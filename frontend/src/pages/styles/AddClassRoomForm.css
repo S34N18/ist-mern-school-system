@@ -1,0 +1,30 @@
+.add-classroom-form {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 400px;
+  }
+  
+  .add-classroom-form input,
+  .add-classroom-form textarea {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .add-classroom-form button {
+    padding: 8px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .add-classroom-form .error {
+    color: red;
+    font-size: 0.9rem;
+  }
+  

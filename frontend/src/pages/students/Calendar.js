@@ -21,7 +21,7 @@ const Calendar = () => {
       console.log('Fetching assignments...'); // Debug log
       
       // Use the existing assignments endpoint
-      const response = await fetch('/api/assignments', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/assignments`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'application/json'

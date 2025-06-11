@@ -34,9 +34,10 @@ const Users = () => {
     try {
       setLoading(true);
       setError(null);
-      const res = await axios.get('http://localhost:5000/api/users', {
-        headers: { Authorization: `Bearer ${token}` }  // Attach token to header
-      });
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/users`, {
+  headers: { Authorization: `Bearer ${token}` }
+});
+
       
       // Ensure each user has a role property with a default value
       const usersWithDefaults = (res.data.data || []).map(user => ({
@@ -73,9 +74,10 @@ const Users = () => {
   const handleCreate = async (e) => {
     e.preventDefault(); // Prevent page reload
     try {
-      await axios.post('http://localhost:5000/api/users', form, {
-        headers: { Authorization: `Bearer ${token}` }  // Secure the request
-      });
+     await axios.post(`${process.env.REACT_APP_API_URL}/api/users`, form, {
+  headers: { Authorization: `Bearer ${token}` }
+});
+
       fetchUsers();  // Refresh the user list
       setForm({ name: '', email: '', password: '', role: 'student', studentId: '' });  // Clear form
       setShowCreateForm(false); // Hide form after creation
@@ -93,12 +95,13 @@ const Users = () => {
   const handleUpdateUser = async (userId) => {
     try {
       const newRole = editingRole[userId];
-      await axios.put(`http://localhost:5000/api/users/${userId}`, 
-        { role: newRole }, 
-        {
-          headers: { Authorization: `Bearer ${token}` }
-        }
-      );
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/users/${userId}`, 
+  { role: newRole }, 
+  {
+    headers: { Authorization: `Bearer ${token}` }
+  }
+);
+
       fetchUsers(); // Refresh the user list
       // Clear the editing state for this user
       const updatedEditing = { ...editingRole };

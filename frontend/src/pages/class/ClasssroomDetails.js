@@ -42,12 +42,12 @@ const ClassroomDetails = () => {
         }
 
         // Try HTTP first (most common for localhost)
-        const baseURL = 'http://localhost:5000';
-        console.log('Attempting to fetch from:', `${baseURL}/api/classrooms/${id}`);
-        
+        //const baseURL = 'http://localhost:5000';
+        console.log('Attempting to fetch from:', `${process.env.REACT_APP_API_URL}/api/classrooms/${id}`);
+
         // Fetch classroom details
-        const classroomRes = await axios.get(`${baseURL}/api/classrooms/${id}`, {
-          headers: { 
+        const classroomRes = await axios.get(`${process.env.REACT_APP_API_URL}/api/classrooms/${id}`, {
+          headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
           }
@@ -71,7 +71,7 @@ const ClassroomDetails = () => {
         
         // Fetch classroom assignments
         console.log('Fetching assignments...');
-        const assignmentsRes = await axios.get(`${baseURL}/api/classrooms/${id}/assignments`, {
+        const assignmentsRes = await axios.get(`${process.env.REACT_APP_API_URL}/api/classrooms/${id}/assignments`, {
           headers: { 
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -149,7 +149,7 @@ const ClassroomDetails = () => {
     setLoadingStudents(true);
     try {
       console.log('Fetching available students...');
-      const response = await axios.get(`http://localhost:5000/api/classrooms/${id}/available-students`, {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/classrooms/${id}/available-students`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -185,17 +185,17 @@ const ClassroomDetails = () => {
     
     setAddingStudents(true);
     try {
-      await axios.post(`http://localhost:5000/api/classrooms/${id}/add-students`, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/classrooms/${id}/add-students`, {
         studentIds: selectedStudents
       }, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
       // Refresh classroom data to show new students
-      const classroomRes = await axios.get(`http://localhost:5000/api/classrooms/${id}`, {
+      const classroomRes = await axios.get(`${process.env.REACT_APP_API_URL}/api/classrooms/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      
+
       // Handle response format
       const classroomData = classroomRes.data.data || classroomRes.data;
       setClassroom(classroomData);

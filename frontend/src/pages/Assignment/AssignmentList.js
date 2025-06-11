@@ -15,11 +15,12 @@ const AssignmentList = () => {
     const fetchAssignments = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("/api/assignments", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/assignments`, {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+});
+
         setAssignments(res.data.data);
         setLoading(false);
       } catch (err) {
@@ -41,13 +42,14 @@ const AssignmentList = () => {
   const downloadFile = async (assignmentId, fileIndex) => {
     try {
       // Use axios to fetch the file with responseType 'blob'
-      const response = await axios.get(
-        `/api/assignments/${assignmentId}/download/${fileIndex}`,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-          responseType: 'blob' // Important for binary data
-        }
-      );
+    const response = await axios.get(
+  `${process.env.REACT_APP_API_URL}/api/assignments/${assignmentId}/download/${fileIndex}`,
+  {
+    headers: { Authorization: `Bearer ${token}` },
+    responseType: 'blob'
+  }
+);
+
 
       // Create a URL for the blob
       const fileURL = window.URL.createObjectURL(new Blob([response.data]));

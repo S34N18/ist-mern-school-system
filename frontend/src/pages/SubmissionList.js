@@ -16,12 +16,12 @@ const SubmissionList = () => {
     const fetchSubmissions = async () => {
       setLoading(true);
       try {
-        let url = "http://localhost:5000/api/submissions";
-        
-        // If we have an assignmentId parameter, use it to filter submissions
-        if (assignmentId) {
-          url = `http://localhost:5000/api/submissions?assignment=${assignmentId}`;
-        }
+        let url = `${process.env.REACT_APP_API_URL}/api/submissions`;
+
+if (assignmentId) {
+  url = `${process.env.REACT_APP_API_URL}/api/submissions?assignment=${assignmentId}`;
+}
+
         
         const res = await axios.get(url, {
           headers: { Authorization: `Bearer ${token}` },
@@ -43,7 +43,7 @@ const SubmissionList = () => {
 const downloadFile = async (filename) => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/submissions/download/${filename}`,
+      `${process.env.REACT_APP_API_URL}/api/submissions/download/${filename}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

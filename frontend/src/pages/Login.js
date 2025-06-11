@@ -49,11 +49,12 @@ const Login = () => {
 
       console.log('Attempting login for:', requestData.email);
 
-      const res = await axios.post('http://localhost:5000/api/auth/login', requestData, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, requestData, {
+  headers: {
+    'Content-Type': 'application/json'
+  }
+});
+
 
       console.log('Full login response:', res.data);
 

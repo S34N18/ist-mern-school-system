@@ -14,7 +14,7 @@ const AssignmentDetails = () => {
   useEffect(() => {
     const fetchAssignment = async () => {
       try {
-        const res = await axios.get(`/api/assignments/${assignmentId}`, {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/assignments/${assignmentId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         console.log('Assignment data received:', res.data); // Debug: Log full response
@@ -35,7 +35,7 @@ const AssignmentDetails = () => {
     try {
       // Use axios to fetch the file with responseType 'blob'
       const response = await axios.get(
-        `/api/assignments/${assignmentId}/download/${fileIndex}`,
+        `${process.env.REACT_APP_API_URL}/api/assignments/${assignmentId}/download/${fileIndex}`,
         {
           headers: { Authorization: `Bearer ${token}` },
           responseType: 'blob' // Important for binary data

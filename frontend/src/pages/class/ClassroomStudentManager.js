@@ -14,8 +14,8 @@ const ClassroomStudentManager = ({ classroomId, token }) => {
       try {
         setLoading(true);
         setError(null);
-        
-        const res = await axios.get(`/api/classrooms/${classroomId}`, {
+
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/classrooms/${classroomId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         
@@ -51,7 +51,7 @@ const ClassroomStudentManager = ({ classroomId, token }) => {
     
     try {
       await axios.put(
-        `/api/classrooms/${classroomId}/remove-students`,
+        `${process.env.REACT_APP_API_URL}/api/classrooms/${classroomId}/remove-students`,
         { studentIds: selectedStudents },
         { headers: { Authorization: `Bearer ${token}` } }
       );

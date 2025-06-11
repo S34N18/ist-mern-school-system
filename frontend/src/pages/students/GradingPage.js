@@ -35,7 +35,7 @@ const GradingPage = () => {
 
   const fetchAssignments = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/assignments", {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/assignments`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       
@@ -56,7 +56,7 @@ const GradingPage = () => {
 
   const fetchSubmissions = async () => {
     try {
-      let url = "http://localhost:5000/api/submissions";
+      let url = `${process.env.REACT_APP_API_URL}/api/submissions`;
       const params = new URLSearchParams();
 
       if (selectedAssignmentId) {
@@ -112,7 +112,7 @@ const GradingPage = () => {
     setSubmitting(true);
     try {
       await axios.put(
-        `http://localhost:5000/api/submissions/${submissionId}/grade`,
+        `${process.env.REACT_APP_API_URL}/api/submissions/${submissionId}/grade`,
         {
           grade: parseInt(gradeInput),
           feedback: feedbackInput.trim(),
@@ -150,7 +150,7 @@ const GradingPage = () => {
   const downloadFile = async (filename) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/submissions/download/${filename}`,
+        `${process.env.REACT_APP_API_URL}/api/submissions/download/${filename}`,
         {
           headers: { Authorization: `Bearer ${token}` },
           responseType: 'blob',
@@ -174,7 +174,7 @@ const GradingPage = () => {
   const downloadAssignmentFile = async (filePath, filename) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/files/${encodeURIComponent(filePath)}`,
+        `${process.env.REACT_APP_API_URL}/api/files/${encodeURIComponent(filePath)}`,
         {
           headers: { Authorization: `Bearer ${token}` },
           responseType: 'blob',

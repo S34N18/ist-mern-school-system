@@ -23,7 +23,7 @@ const ClassroomList = () => {
     console.log('Token exists:', !!token);
     
     try {
-      const response = await axios.get('http://localhost:5000/api/classrooms', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/classrooms`, {
         headers: { 
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'

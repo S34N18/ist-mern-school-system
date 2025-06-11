@@ -36,7 +36,7 @@ const Grades = () => {
 
   const fetchStudents = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/users/students", {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/users/students`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStudents(res.data);
@@ -48,8 +48,8 @@ const Grades = () => {
 
   const fetchSubmissions = async () => {
     try {
-      let url = "http://localhost:5000/api/submissions";
-      
+      let url = `${process.env.REACT_APP_API_URL}/api/submissions`;
+
       // Determine which student's submissions to fetch
       if (user.role === "student") {
         // Students see only their own submissions
@@ -57,10 +57,10 @@ const Grades = () => {
       } else if (user.role === "lecturer") {
         if (studentId) {
           // Specific student route
-          url = `http://localhost:5000/api/students/${studentId}/submissions`;
+          url = `${process.env.REACT_APP_API_URL}/api/students/${studentId}/submissions`;
         } else if (selectedStudentId) {
           // Selected from dropdown
-          url = `http://localhost:5000/api/students/${selectedStudentId}/submissions`;
+          url = `${process.env.REACT_APP_API_URL}/api/students/${selectedStudentId}/submissions`;
         } else {
           // All graded submissions
           url += `?graded=true`;
@@ -86,7 +86,7 @@ const Grades = () => {
   const downloadFile = async (filename) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/submissions/download/${filename}`,
+        `${process.env.REACT_APP_API_URL}/api/submissions/download/${filename}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -112,7 +112,7 @@ const Grades = () => {
   const downloadAssignmentFile = async (filePath, filename) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/files/${encodeURIComponent(filePath)}`,
+        `${process.env.REACT_APP_API_URL}/api/files/${encodeURIComponent(filePath)}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

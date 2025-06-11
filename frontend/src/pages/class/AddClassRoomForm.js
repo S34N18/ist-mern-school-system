@@ -21,7 +21,7 @@ const AddClassRoomForm = ({ onClassroomAdded }) => {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/classrooms",
+        `${process.env.REACT_APP_API_URL}/api/classrooms`,
         formData,
         {
           headers: {

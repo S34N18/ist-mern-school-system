@@ -15,7 +15,7 @@ const MyClasses = () => {
 
   const fetchMyClasses = async () => {
     try {
-      const response = await fetch(`/api/students/${user.id}/classrooms`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/students/${user.id}/classrooms`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }

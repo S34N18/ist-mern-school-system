@@ -20,7 +20,8 @@ const AssignmentSubmit = () => {
   useEffect(() => {
     const fetchAssignment = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/assignments/${id}`, {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/assignments/${id}`, {
+
           headers: { Authorization: `Bearer ${token}` }
         });
         setAssignment(res.data);
@@ -72,7 +73,7 @@ const AssignmentSubmit = () => {
     });
 
     try {
-      await axios.post('http://localhost:5000/api/submissions', formData, {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/submissions`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'
@@ -120,7 +121,7 @@ const AssignmentSubmit = () => {
           <div className="assignment-attachment">
             <p><strong>Assignment Files:</strong></p>
             <a 
-              href={`http://localhost:5000/api/assignments/download/${assignment.attachments[0].filename}`} 
+              href={`${process.env.REACT_APP_API_URL}/api/assignments/download/${assignment.attachments[0].filename}`}
               target="_blank" 
               rel="noopener noreferrer"
               onClick={(e) => {

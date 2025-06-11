@@ -29,7 +29,7 @@ const AssignmentCreate = () => {
   useEffect(() => {
     const fetchClassroom = async () => {
       try {
-        const res = await axios.get(`/api/classrooms/${classroomId}`, {
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/classrooms/${classroomId}`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setClassroom(res.data);
@@ -84,7 +84,7 @@ const AssignmentCreate = () => {
       console.log('Sending request to create assignment...');
       
       // Send POST request to backend to create assignment
-      const response = await axios.post('/api/assignments', formData, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/assignments`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,  // Send token for authentication
           'Content-Type': 'multipart/form-data'

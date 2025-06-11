@@ -39,7 +39,7 @@ const Profile = () => {
 
   const fetchUserStats = async () => {
     try {
-      const response = await fetch(`/api/students/${user.id}/stats`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/students/${user.id}/stats`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
@@ -68,7 +68,7 @@ const Profile = () => {
         }
       });
 
-      const response = await fetch(`/api/users/${user.id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/${user.id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -111,7 +111,7 @@ const Profile = () => {
     }
 
     try {
-      const response = await fetch(`/api/users/${user.id}/password`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/users/${user.id}/password`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
